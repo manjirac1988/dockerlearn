@@ -1,0 +1,9 @@
+sudo: required
+services:
+ - docker
+
+before-install:
+ - docker build -t manjirac1988/docker-learn -f Dockerfile.dev .
+
+script:
+ - docker run -e CI=true manjirac1988/docker-learn npm run test 
